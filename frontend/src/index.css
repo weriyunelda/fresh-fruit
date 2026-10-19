@@ -1,111 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;700;800&display=swap');
+
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
-
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
-
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
+  --hijau: #81c408;
+  --hijau-tua: #6aa304;
+  --kuning: #ffb524;
+  --slate: #45595b;
+  --abu: #f4f6f8;
+  --garis: #e3e8ea;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
+* { box-sizing: border-box; }
+body { margin: 0; font-family: 'Open Sans', Arial, sans-serif; color: var(--slate); background: #fff; line-height: 1.6; }
+h1, h2, h3, h4 { font-family: 'Raleway', Arial, sans-serif; margin: 0 0 12px; color: var(--slate); }
+a { text-decoration: none; color: inherit; }
+p { margin: 0 0 12px; }
+.wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
-}
+/* Topbar */
+.topbar { background: var(--hijau); color: #fff; font-size: 14px; padding: 8px 0; }
+.topbar .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
 
-body {
-  margin: 0;
-}
+/* Navbar */
+.navbar { position: sticky; top: 0; z-index: 10; background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,.06); }
+.navbar .wrap { display: flex; align-items: center; gap: 32px; height: 76px; }
+.logo { font-family: 'Raleway', sans-serif; font-size: 30px; font-weight: 800; color: var(--hijau); margin-right: auto; }
+.menu { display: flex; gap: 28px; }
+.menu a { font-weight: 600; color: var(--slate); }
+.menu a:hover, .menu a.active { color: var(--hijau); }
+.aksi { display: flex; align-items: center; gap: 14px; }
+.ikon-btn { position: relative; width: 44px; height: 44px; border: 1px solid var(--kuning); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; color: var(--hijau); background: #fff; }
+.ikon-btn svg { width: 20px; height: 20px; }
+.badge-cart { position: absolute; top: -6px; right: -6px; background: var(--kuning); color: var(--slate);
+  font-size: 11px; font-weight: 700; width: 20px; height: 20px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; }
 
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-}
+/* Tombol */
+.btn { display: inline-block; background: var(--hijau); color: #fff; border: 1px solid var(--hijau);
+  padding: 12px 28px; border-radius: 30px; font-weight: 600; font-size: 15px; cursor: pointer; font-family: inherit; }
+.btn:hover { background: var(--hijau-tua); border-color: var(--hijau-tua); }
+.btn-outline { background: #fff; color: var(--hijau); border-color: var(--kuning); }
+.btn-outline:hover { background: var(--kuning); border-color: var(--kuning); color: var(--slate); }
+.btn-kecil { padding: 8px 18px; font-size: 14px; }
+.btn-blok { width: 100%; border-radius: 10px; }
 
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
-}
+/* Hero */
+.hero { background: linear-gradient(120deg, #fbf8f1 0%, #f1f8e3 100%); padding: 80px 0; }
+.hero .wrap { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center; }
+.hero .label { color: var(--kuning); font-family: 'Raleway', sans-serif; font-weight: 700; font-size: 20px; }
+.hero h1 { font-size: 56px; line-height: 1.15; color: var(--hijau); }
+.hero p.desc { font-size: 17px; max-width: 480px; margin-bottom: 28px; }
+.hero-visual { height: 380px; border-radius: 16px; background: linear-gradient(135deg, #cfe8a0, #81c408);
+  display: flex; align-items: center; justify-content: center; color: #fff; font-family: 'Raleway', sans-serif;
+  font-size: 22px; font-weight: 700; }
 
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
-}
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
-p {
-  margin: 0;
-}
+/* Section */
+.section { padding: 70px 0; }
+.section.abu { background: #fff; }
+.judul-section { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px; margin-bottom: 32px; }
+.judul-section h2 { font-size: 36px; margin: 0; }
+.judul-tengah { text-align: center; margin-bottom: 36px; }
+.judul-tengah h2 { font-size: 38px; }
 
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
-}
+/* Keunggulan */
+.fitur { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
+.fitur-item { background: var(--abu); border-radius: 12px; padding: 36px 24px; text-align: center; }
+.fitur-nomor { width: 72px; height: 72px; margin: 0 auto 18px; border-radius: 50%; background: var(--kuning);
+  color: #fff; font-family: 'Raleway', sans-serif; font-weight: 800; font-size: 24px;
+  display: flex; align-items: center; justify-content: center; }
+.fitur-item h3 { font-size: 20px; }
+.fitur-item p { margin: 0; }
 
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+/* Filter dan pencarian */
+.filter { display: flex; flex-wrap: wrap; gap: 10px; }
+.chip { background: var(--abu); border: none; padding: 10px 24px; border-radius: 30px; cursor: pointer;
+  font-family: inherit; font-size: 15px; color: var(--slate); }
+.chip.aktif { background: var(--kuning); color: #fff; font-weight: 600; }
+.cari { width: 100%; max-width: 360px; padding: 12px 20px; border: 1px solid var(--kuning); border-radius: 30px;
+  font-size: 15px; font-family: inherit; outline: none; }
+.cari:focus { border-color: var(--hijau); }
+.toolbar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; margin-bottom: 32px; }
+
+/* Kartu produk */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 24px; }
+.card { background: #fff; border: 1px solid var(--kuning); border-radius: 12px; overflow: hidden; position: relative;
+  transition: box-shadow .2s, transform .2s; }
+.card:hover { box-shadow: 0 10px 28px rgba(0,0,0,.1); transform: translateY(-3px); }
+.card .thumb { height: 190px; background: var(--abu); display: flex; align-items: center; justify-content: center;
+  font-family: 'Raleway', sans-serif; font-size: 44px; font-weight: 800; color: #c3ccce; }
+.card .thumb img { width: 100%; height: 100%; object-fit: cover; }
+.card .tag { position: absolute; top: 14px; left: 14px; background: var(--kuning); color: #fff; font-size: 13px;
+  padding: 4px 14px; border-radius: 6px; font-weight: 600; }
+.card .isi { padding: 20px; }
+.card h3 { font-size: 20px; }
+.card .ket { font-size: 14px; min-height: 44px; }
+.card .bawah { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.harga { font-family: 'Raleway', sans-serif; font-size: 19px; font-weight: 700; color: var(--slate); }
+.harga small { font-weight: 400; font-size: 13px; }
+.kosong { text-align: center; padding: 48px 0; color: #8a9a9c; }
+
+/* Banner */
+.banner { background: var(--kuning); padding: 64px 0; }
+.banner .wrap { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
+.banner h2 { font-size: 40px; color: #fff; margin-bottom: 8px; }
+.banner p { color: var(--slate); font-size: 17px; margin: 0; }
+.banner .btn { background: #fff; color: var(--slate); border-color: #fff; }
+.banner .btn:hover { background: var(--slate); color: #fff; border-color: var(--slate); }
+
+/* Form login dan register */
+.form-box { max-width: 420px; margin: 70px auto; background: #fff; padding: 40px; border-radius: 12px;
+  border: 1px solid var(--garis); box-shadow: 0 10px 30px rgba(0,0,0,.06); }
+.form-box h2 { text-align: center; margin-bottom: 24px; }
+.form-box input { display: block; width: 100%; padding: 12px 16px; margin-bottom: 14px; border: 1px solid var(--garis);
+  border-radius: 10px; font-size: 15px; font-family: inherit; outline: none; }
+.form-box input:focus { border-color: var(--hijau); }
+
+/* Footer */
+.footer { background: var(--slate); color: #d5dedf; padding-top: 60px; }
+.footer-atas { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;
+  padding-bottom: 32px; border-bottom: 1px solid rgba(255,255,255,.15); }
+.footer-atas .logo { font-size: 34px; margin: 0; }
+.footer-atas span { color: var(--kuning); display: block; font-family: 'Raleway', sans-serif; }
+.footer-kolom { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 32px; padding: 40px 0; }
+.footer h4 { color: #fff; font-size: 20px; }
+.footer a { display: block; margin-bottom: 8px; color: #d5dedf; }
+.footer a:hover { color: var(--hijau); }
+.footer-bawah { border-top: 1px solid rgba(255,255,255,.15); padding: 20px 0; font-size: 14px; text-align: center; }
+
+@media (max-width: 800px) {
+  .hero .wrap { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 38px; }
+  .menu { display: none; }
 }
